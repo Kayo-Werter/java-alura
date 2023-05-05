@@ -1,6 +1,6 @@
 package br.com.alura.screenmatch.modelos;
 
-public class Titulo {
+public class Titulo implements Comparable<Titulo>{
     private String nome;
     private int anoLancamento;
     private boolean incluidoNoPlano;
@@ -61,4 +61,10 @@ public class Titulo {
         return somaDasAvaliacoes / totalAvaliacoes;
     }
 
+    /* Para fazer a ordenação de uma lista com vários títulos é necessário implementar a interface "comparable".
+        Ela nos auxilia comparando os títulos e assim possibilitando a ordenação em uma lista. */
+    @Override
+    public int compareTo(Titulo outroTitulo) {
+        return this.getNome().compareTo(outroTitulo.getNome());
+    }
 }
